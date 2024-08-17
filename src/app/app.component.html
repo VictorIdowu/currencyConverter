@@ -13,15 +13,6 @@
         suiPlaceholder="Select Currency"
         [suiOptions]="currencies"
       ></sui-select>
-      <div
-        class="ui pointing red basic label"
-        *ngIf="
-          form.controls['fromCurrency'].value ===
-          form.controls['toCurrency'].value
-        "
-      >
-        Please choose different currencies to convert.
-      </div>
     </div>
     <div id="iconCustom" (click)="toggleCurrencies()" class="ui message">
       <i id="icon" class="exchange icon"></i>
@@ -34,6 +25,15 @@
         suiPlaceholder="Select Currency"
         [suiOptions]="currencies"
       ></sui-select>
+      <div
+        class="ui pointing red basic label"
+        *ngIf="
+          form.controls['fromCurrency'].value ===
+          form.controls['toCurrency'].value
+        "
+      >
+        Please choose different currencies to convert.
+      </div>
     </div>
 
     <div class="required field">
