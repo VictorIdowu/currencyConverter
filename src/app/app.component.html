@@ -45,6 +45,16 @@
         placeholder="Enter amount"
         required
       />
+      <div
+        class="ui pointing red basic label"
+        *ngIf="
+          (form.controls['amount'].invalid ||
+            form.controls['amount'].value === 0) &&
+          form.controls['amount'].touched
+        "
+      >
+        Please enter a valid amount
+      </div>
     </div>
 
     <button type="submit" class="ui button teal" [disabled]="form.invalid">
