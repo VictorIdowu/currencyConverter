@@ -1,6 +1,10 @@
 <div class="ui container" id="container">
   <h2>Currency Converter</h2>
-  <form [formGroup]="form" (ngSubmit)="handleConvert()" class="ui form">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="handleConvert()"
+    class="ui form {{ loading ? 'loading' : '' }}"
+  >
     <div class="field">
       <label>From</label>
 

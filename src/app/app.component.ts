@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'currencyConverter';
   form!: FormGroup;
+  loading = false;
 
   conversionResult: string | null = null;
   errorMessage: string | null = null;
@@ -71,6 +72,7 @@ export class AppComponent implements OnInit {
 
   handleConvert() {
     if (this.form.valid) {
+      this.loading = true;
       const res = this.convert
         .getExchangeRate(
           this.form.get('fromCurrency')?.value,
@@ -84,11 +86,13 @@ export class AppComponent implements OnInit {
             } is equal to ${this.form.get('amount')?.value * rate} ${
               this.form.get('toCurrency')?.value
             }`;
+            this.loading = false;
             this.errorMessage = null;
           },
           error: (err) => {
             this.errorMessage =
               'Error fetching conversion rate. Please try again.';
+            this.loading = false;
             this.conversionResult = null;
           },
         });
