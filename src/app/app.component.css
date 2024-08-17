@@ -1,0 +1,9 @@
+#iconCustom {
+  max-width: 60px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#icon {
+  transform: scale(125%);
+}
