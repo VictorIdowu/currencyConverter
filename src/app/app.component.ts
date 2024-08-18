@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   loading = false;
 
   conversionResult: string | null = null;
+  rate: number | null = null;
   errorMessage: string | null = null;
 
   currencies = [
@@ -81,6 +82,7 @@ export class AppComponent implements OnInit {
         .subscribe({
           next: (data) => {
             const rate = data.conversion_rate;
+            this.rate = rate;
             this.conversionResult = `${this.form.get('amount')?.value} ${
               this.form.get('fromCurrency')?.value
             } is equal to ${this.form.get('amount')?.value * rate} ${
